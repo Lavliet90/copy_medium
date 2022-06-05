@@ -1,0 +1,35 @@
+{% extends 'news_medium/base.html' %}
+{% block title %}Main page{% endblock %}
+{% block content %}
+
+
+
+{% for article in articles %}
+<div class="row mb-2">
+    <div class="col-md-12">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">{{article.author}}</strong>
+          <h3 class="mb-0">{{article.title}}</h3>
+          <div class="mb-1 text-muted">{{article.create | date:"d-m-Y H:i:s"}}</div>
+          <p class="card-text mb-auto">{{article.text | truncatewords:35 }}</p>
+          <a href="{{ article.slug }}" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+              {% if article.photo %}
+              <p><img class="img-circle" src="{{article.photo.url}}"> </p>
+              {% endif %}
+            </svg>
+
+        </div>
+      </div>
+    </div>
+    </div>
+
+{% empty %}
+  <li>No articles yet.</li>
+{% endfor %}
+
+
+
+{% endblock %}
