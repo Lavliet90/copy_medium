@@ -1,2 +1,2 @@
 django==4.0.2
-p
+django-embed-video==1.4.4

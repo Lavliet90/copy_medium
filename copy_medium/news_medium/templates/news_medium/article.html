@@ -7,5 +7,10 @@
 {% if article.photo %}
 <p><img class="img-article-left" src="{{article.photo.url}}"> </p>
 {% endif %}
-{{article.text}}
+{{article.text}} <br>
+<hr/>
+
+{% if article.video %}
+<iframe width="560" height="315" src="{{ article.video }}" frameborder="0" allowfullscreen></iframe>
+{% endif %}
 {% endblock %}
