@@ -13,4 +13,18 @@
 {% if article.video %}
 <iframe width="560" height="315" src="{{ article.video }}" frameborder="0" allowfullscreen></iframe>
 {% endif %}
+<br>
+
+
+{% with comments.count as total_comments %}
+    <h2>
+        {{ total_comments }} comment{{ total_comments|pluralize }}
+    </h2>
+{% endwith %}
+{% for i in comments %}
+Name: {{i.name}} <br> Email: {{i.email}} <br>{{i.comment_text}} <br>date: {{i.comment_create}}<br><hr/>
+{% endfor %}
+
+<a href="{% url 'add_comment'%}">Add comment</a>
+
 {% endblock %}

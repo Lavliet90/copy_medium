@@ -1,0 +1,9 @@
+{% extends 'news_medium/base.html' %}
+{% block title %}{{article.title}}{% endblock %}
+{% block content %}
+<form action="{% url 'add_comment' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Add">
+</form>
+{% endblock %}
