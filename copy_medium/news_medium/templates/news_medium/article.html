@@ -3,7 +3,8 @@
 {% block content %}
 
 <h1>{{article.title}}</h1>
-
+<p class="tags">Tags: {{ article.tags.all|join:", " }}</p>
+<!--<a class="p-2 link-secondary" href="#">World</a>-->
 {% if article.photo %}
 <p><img class="img-article-left" src="{{article.photo.url}}"> </p>
 {% endif %}
@@ -22,9 +23,17 @@
     </h2>
 {% endwith %}
 {% for i in comments %}
-Name: {{i.name}} <br> Email: {{i.email}} <br>{{i.comment_text}} <br>date: {{i.comment_create}}<br><hr/>
+<div class="comment">
+    <p class="info">
+        {{ forloop.counter }} Name: {{i.name}} <br>
+        Email: {{i.email}} <br>
+        {{i.comment_text}}<br>
+        date: {{i.comment_create}}<br><hr/>
+    </p>
+</div>
+{% empty %}
+    <p>There are no comments yet.</p>
 {% endfor %}
-
-<a href="{% url 'add_comment'%}">Add comment</a>
+<a href="{% url 'add_comment' article.slug %}">Add comment</a>
 
 {% endblock %}

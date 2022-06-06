@@ -13,7 +13,7 @@
           <h3 class="mb-0">{{article.title}}</h3>
           <div class="mb-1 text-muted">{{article.create | date:"d-m-Y H:i:s"}}</div>
           <p class="card-text mb-auto">{{article.text | truncatewords:35 }}</p>
-          <a href="{{ article.slug }}" class="stretched-link">Continue reading</a>
+          <a href="{% url 'article' article.slug %}" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
               {% if article.photo %}
