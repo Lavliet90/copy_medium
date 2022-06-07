@@ -1,8 +1,7 @@
 {% extends 'news_medium/base.html' %}
-<!--{% include "pagination.html" with page=posts %}-->
 {% block title %}{{article.title}}{% endblock %}
 {% block content %}
-<!--{% if tag %}-->
-<!--    <h2>Posts tagged with "{{ tag.name }}"</h2>-->
-<!--{% endif %}-->
+{% for tag in tags %}
+{{tag.name_category}}
+{% endfor %}
 {% endblock %}
