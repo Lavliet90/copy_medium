@@ -11,7 +11,7 @@ from .models import Article, Comment, CategoryArticle
 
 class ArticleListView(ListView):
     model = Article
-    template_name = 'news_medium/main_page.html'
+    template_name = 'news_medium/../../news/news_medium/template/news_medium/main_page.html'
     context_object_name = 'articles'
     paginate_by = 5
 
