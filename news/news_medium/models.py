@@ -18,7 +18,7 @@ class Author(models.Model):
 
 
 class CategoryArticle(models.Model):
-    name_category = models.CharField(max_length=35)
+    name_category = models.CharField(max_length=30)
     create = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

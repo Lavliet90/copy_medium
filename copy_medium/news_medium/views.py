@@ -36,8 +36,8 @@ class ArticleDetailView(DetailView):
     def get_context_data(self, *, objects_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Article'
-        context['comments'] = Comment.objects.filter(article=context.get('article'))[:5]
-        print(context.get('article'))
+        # context['comments'] = Comment.objects.filter(article=context.get('article'))
+        # print(context.get('article'))
         return context
 
 
@@ -56,6 +56,11 @@ class TagsListVies(ListView):
     model = CategoryArticle
     template_name = 'news_medium/tags.html'
     context_object_name = 'tags'
+
+class ArticleDetailView(DetailView):
+    model = CategoryArticle
+    template_name = 'news_medium/article_by_tag.html'
+    context_object_name = 'one_tag'
 
 
 # def post_list(request, tag_slug=None):
